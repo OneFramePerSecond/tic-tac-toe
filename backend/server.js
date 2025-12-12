@@ -2,6 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
+// --- FIX для Render: добавляем fetch ---
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
+
 const app = express();
 app.use(express.json());
 
@@ -34,10 +38,10 @@ app.post("/api/telegram", async (req, res) => {
     });
 
     const json = await r.json();
-    res.json(json);
+    return res.json(json);
   } catch (err) {
     console.error("TG ERROR:", err);
-    res.status(500).json({ error: "Telegram error" });
+    return res.status(500).json({ error: "Telegram error" });
   }
 });
 
