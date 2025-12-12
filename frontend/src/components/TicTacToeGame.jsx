@@ -63,7 +63,7 @@ export default function TicTacToeGame() {
 
   async function sendTelegram(text) {
     try {
-      await fetch("http://localhost:4000/api/telegram", {
+      await fetch("https://tic-tac-toe-backend-z18s.onrender.com/api/telegram", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text })

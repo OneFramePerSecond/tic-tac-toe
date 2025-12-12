@@ -1,4 +1,4 @@
-import TicTacToeGame from "./components/TicTacToeGame"
+import TicTacToeGame from "./components/TicTacToeGame.jsx"
 
 export default function App() {
   return (
